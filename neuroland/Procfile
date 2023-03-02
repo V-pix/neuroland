@@ -1,0 +1,1 @@
+web: gunicorn neuroland.wsgi --log-file
