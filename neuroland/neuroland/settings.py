@@ -18,6 +18,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users.apps.UsersConfig',
+    'courses.apps.CoursesConfig',
     'phonenumber_field',
     'rest_framework',
     'rest_framework.authtoken',
@@ -99,5 +100,14 @@ REST_FRAMEWORK = {
 
 DJOSER = {
     "LOGIN_FIELD": "email",
+    "SERIALIZERS": {
+        "user": "api.serializers.CustomUserSerializer",
+        "user_create": "api.serializers.CustomUserSerializer",
+        "current_user": "api.serializers.CustomUserSerializer",
+    },
+    "PERMISSIONS": {
+        "user": ["rest_framework.permissions.AllowAny"],
+        "user_list": ["rest_framework.permissions.AllowAny"],
+    },
     "HIDE_USERS": False,
 }
